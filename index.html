@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 </head>
 <body>
-<nav class="navbar bg-body-tertiary">
+<nav class="navbar" style="background-color: lightgray">
     <div class="d-flex w-100">
         <div class="d-flex justify-content-start w-50 ps-3">
-            <i class="fas fa-mug-hot" style="font-size: 30px;"></i>
-            <a class="navbar-brand" style="font-weight: bold; font-size: 25px">Coffee Shop</a>
+            <i class="fas fa-mug-hot" style="font-size: 30px; color: orangered"></i>
+            <a class="navbar-brand" style="font-weight: bold; font-size: 25px; color: orangered; font-family: Baskerville">Coffee Shop</a>
         </div>
         <div class="d-flex justify-content-end w-50">
             <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -22,8 +22,9 @@
         </div>
     </div>
 </nav>
+<div style="background-color: lightseagreen">
 <div class="d-flex justify-content-end">
-    <div class="collapse w-25" id="collapseExample" style="border: 2px solid blue; border-radius: 10px">
+    <div class="collapse w-25" id="collapseExample" style="border: 2px solid black; border-radius: 10px">
         <div class="card card-body">
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search">
@@ -47,32 +48,37 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Coffee!</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <input class="form-control me-2" type="search" placeholder="Coffee Name" aria-label="Search" id="coffeeName">
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <label for="roastType"></label>
+                        <select class="form-select" id="roastType">
+                            <option selected value="none">Select Roast</option>
+                            <option value="light">Light</option>
+                            <option value="medium">Medium</option>
+                            <option value="dark">Dark</option>
+                        </select>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">yar!</button>
+                <button type="button" id="closeModal" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="addCardBtn" class="btn btn-primary">Submit</button>
             </div>
         </div>
     </div>
 </div>
-    <h1 class="text-center">Coffee!</h1>
+    <h1 class="text-center pt-3" style="color: whitesmoke; font-family: 'Zapf Dingbats',sans-serif; font-size: 50px">Coffee!</h1>
     <div class="container p-0 w-90">
         <div id="coffees" class="row justify-content-center p-0"></div>
     </div>
+</div>
     <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

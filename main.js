@@ -14,7 +14,7 @@ function renderCoffee(coffee) {
 
 function renderCoffees(coffees) {
     let html = '';
-    for(let i = coffees.length - 1; i >= 0; i--) {
+    for(let i = 0; i < coffees.length; i++) {
         html += renderCoffee(coffees[i]);
     }
     return html;
@@ -70,3 +70,35 @@ search.addEventListener('keydown', function (){
         });
         tbody.innerHTML = renderCoffees(filteredCoffees);
     })
+let modelFormName = document.querySelector("#coffeeName");
+let modelFormRoast = document.querySelector("#roastType");
+let modelBtn = document.querySelector("#addCardBtn");
+let addCard = document.querySelector("#exampleModal");
+let closeForm = document.querySelector("#closeModal");
+ function roastValue (){
+    if (modelFormRoast.value === "none") {
+        alert("Select valid roast");
+    } else {
+        return modelFormRoast.value;
+    }
+ }
+ function roastName () {
+     if (modelFormName.value === "") {
+
+     } else {
+         return modelFormName.value;
+     }
+ }
+
+modelBtn.addEventListener("click", function (event){
+    let newCoffee = {
+        id: coffees.length + 1,
+        name: modelFormName.value,
+        roast: modelFormRoast.value
+    }
+    coffees.push(newCoffee);
+    console.log(coffees);
+    tbody.innerHTML = renderCoffees(coffees);
+    closeForm.click();
+
+})
