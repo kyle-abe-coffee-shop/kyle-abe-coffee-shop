@@ -31,7 +31,6 @@ function updateCoffees(e) {
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
-
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 let coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
@@ -59,7 +58,7 @@ tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
 roastSelection.addEventListener('change', updateCoffees)
-search.addEventListener('keydown', function (){
+search.addEventListener('keyup', function (){
         let filteredCoffees = [];
         coffees.forEach(function(coffee) {
             let name = coffee.name.toLowerCase()
@@ -75,20 +74,6 @@ let modelFormRoast = document.querySelector("#roastType");
 let modelBtn = document.querySelector("#addCardBtn");
 let addCard = document.querySelector("#exampleModal");
 let closeForm = document.querySelector("#closeModal");
- function roastValue (){
-    if (modelFormRoast.value === "none") {
-        alert("Select valid roast");
-    } else {
-        return modelFormRoast.value;
-    }
- }
- function roastName () {
-     if (modelFormName.value === "") {
-
-     } else {
-         return modelFormName.value;
-     }
- }
 
 modelBtn.addEventListener("click", function (event){
     let newCoffee = {
