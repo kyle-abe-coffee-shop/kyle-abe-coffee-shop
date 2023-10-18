@@ -8,23 +8,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 </head>
 <body>
-<nav class="navbar" style="background-color: lightgray">
+<nav class="navbar">
     <div class="d-flex w-100">
         <div class="d-flex justify-content-start w-50 ps-3">
-            <i class="fas fa-mug-hot" style="font-size: 30px; color: orangered"></i>
-            <a class="navbar-brand" style="font-weight: bold; font-size: 25px; color: orangered; font-family: Baskerville">Coffee Shop</a>
+            <i class="fas fa-mug-hot" id="logo"></i>
+            <a class="navbar-brand" id="logo1">Coffee Shop</a>
         </div>
         <div class="d-flex justify-content-end w-50">
             <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                <i class="fas fa-search-plus" style="color: #0d6efd;font-size: 30px;"></i>
+                <i class="fas fa-search-plus" id="search-icon"></i>
             </button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-plus-square" style="color: #0d6efd;font-size: 30px"></i></button>
+            <button type="button" id="addCardBtnNav" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-plus-square"></i></button>
         </div>
     </div>
 </nav>
-<main style="background-color: lightseagreen">
+<main>
     <div class="d-flex justify-content-end">
-    <div class="collapse w-25" id="collapseExample" style="border: 2px solid black; border-radius: 10px">
+    <div class="collapse w-25" id="collapseExample">
         <div class="card card-body">
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search">
@@ -74,7 +74,7 @@
         </div>
     </div>
 </div>
-    <h1 class="text-center pt-3" style="color: whitesmoke; font-family: 'Zapf Dingbats',sans-serif; font-size: 50px">Coffee!</h1>
+    <h1 class="text-center pt-3" id="pageHeader">Coffee!</h1>
     <div class="container p-0 w-90">
         <div id="coffees" class="row justify-content-center p-0"></div>
     </div>
