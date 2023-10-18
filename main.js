@@ -1,5 +1,15 @@
 "use strict"
 
+// variable assignment
+let tbody = document.querySelector('#coffees');
+let submitButton = document.querySelector('#submit');
+let roastSelection = document.querySelector('#roast-selection');
+let search = document.querySelector('#search')
+let modelFormName = document.querySelector("#coffeeName");
+let modelFormRoast = document.querySelector("#roastType");
+let modelBtn = document.querySelector("#addCardBtn");
+let closeForm = document.querySelector("#closeModal");
+
 function renderCoffee(coffee) {
     let html = '<div class="card col-3 p-0 m-3">';
     html += '<div class="card-header text-center">';
@@ -19,7 +29,7 @@ function renderCoffees(coffees) {
     }
     return html;
 }
-
+//coffee filter by dropdown
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     let selectedRoast = roastSelection.value;
@@ -31,6 +41,19 @@ function updateCoffees(e) {
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
+// coffee search by searchbar
+search.addEventListener('keyup', function (){
+    let filteredCoffees = [];
+    coffees.forEach(function(coffee) {
+        let name = coffee.name.toLowerCase()
+        let check = search.value.toLowerCase()
+        if (name.includes(check)) {
+            filteredCoffees.push(coffee);
+        }
+    });
+    tbody.innerHTML = renderCoffees(filteredCoffees);
+})
+
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 let coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
@@ -49,32 +72,12 @@ let coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-let tbody = document.querySelector('#coffees');
-let submitButton = document.querySelector('#submit');
-let roastSelection = document.querySelector('#roast-selection');
-let search = document.querySelector('#search')
-
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
 roastSelection.addEventListener('change', updateCoffees)
-search.addEventListener('keyup', function (){
-        let filteredCoffees = [];
-        coffees.forEach(function(coffee) {
-            let name = coffee.name.toLowerCase()
-            let check = search.value.toLowerCase()
-            if (name.includes(check)) {
-                filteredCoffees.push(coffee);
-            }
-        });
-        tbody.innerHTML = renderCoffees(filteredCoffees);
-    })
-let modelFormName = document.querySelector("#coffeeName");
-let modelFormRoast = document.querySelector("#roastType");
-let modelBtn = document.querySelector("#addCardBtn");
-let addCard = document.querySelector("#exampleModal");
-let closeForm = document.querySelector("#closeModal");
 
+// use modal to create a new object and push to array
 modelBtn.addEventListener("click", function (event){
     let newCoffee = {
         id: coffees.length + 1,
