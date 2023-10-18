@@ -37,9 +37,11 @@ function updateCoffees(e) {
     coffees.forEach(function(coffee) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
+            tbody.innerHTML = renderCoffees(filteredCoffees);
+        } else if(selectedRoast === 'all'){
+            tbody.innerHTML = renderCoffees(coffees);
         }
     });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 // coffee search by searchbar
 search.addEventListener('keyup', function (){
